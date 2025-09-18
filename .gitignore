@@ -1,0 +1,25 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+
+# Godot import cache
+.import/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Backup / temp files
+*.tmp
+*.bak
+*.old
+*.swp
+
+# Exported builds
+export/
+*.exe
+*.apk
+*.zip
+*.pck
+*.wasm
+*.html
