@@ -1,0 +1,63 @@
+[gd_scene load_steps=8 format=3 uid="uid://djv5m8bw0emou"]
+
+[ext_resource type="Script" uid="uid://5wb4nigl67w7" path="res://assets/demo.gd" id="1_amuei"]
+[ext_resource type="PackedScene" uid="uid://b7vdci724yiul" path="res://assets/Walking.tscn" id="1_s02n5"]
+[ext_resource type="PackedScene" uid="uid://b1knonuknoeth" path="res://assets/earth_2.tscn" id="2_137jn"]
+[ext_resource type="PackedScene" uid="uid://1sjn3tsbbqe2" path="res://ground/Desert marigold.glb" id="3_xfgwy"]
+[ext_resource type="PackedScene" uid="uid://bo7pdo5oua2pf" path="res://ground/Tree.glb" id="4_137jn"]
+[ext_resource type="PackedScene" uid="uid://dajcxn5y64lq5" path="res://ground/Tent.glb" id="5_uskw3"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_amuei"]
+margin = 0.0
+radius = 80.0
+
+[node name="demo" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.21969)
+script = ExtResource("1_amuei")
+
+[node name="Ground" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.78838, -91.289, 0)
+shape = SubResource("SphereShape3D_amuei")
+
+[node name="Earth2" parent="Ground" instance=ExtResource("2_137jn")]
+transform = Transform3D(4.51546, 1.98367, -0.822014, 0.567088, 0.744468, 4.91164, 2.071, -4.52889, 0.44734, -70.4754, -162, 112.402)
+
+[node name="Walking" parent="." instance=ExtResource("1_s02n5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.868514, -5.85217, -1.63124)
+
+[node name="Walking2" parent="." instance=ExtResource("1_s02n5")]
+transform = Transform3D(0.99961, 0.0279216, 0, -0.0279216, 0.99961, 0, 0, 0, 1, 16.8935, -3.19455, -1.63124)
+
+[node name="Walking3" parent="." instance=ExtResource("1_s02n5")]
+transform = Transform3D(0.991054, -0.133463, 5.80485e-05, 0.132068, 0.980635, -0.144615, 0.0192439, 0.143329, 0.989488, -18.9863, 2.08737, -1.63124)
+
+[node name="Walking5" parent="." instance=ExtResource("1_s02n5")]
+transform = Transform3D(0.897812, -0.440378, 0, 0.440378, 0.897812, 0, 0, 0, 1, -38.0231, -7.09392, -1.63124)
+
+[node name="Walking4" parent="." instance=ExtResource("1_s02n5")]
+transform = Transform3D(0.974162, 0.225852, 0, -0.224626, 0.968871, 0.104077, 0.0235061, -0.101388, 0.994569, 29.2879, -6.81258, 0.0414767)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.496878, -0.867797, 0.00633581, 0.769098, 0.443724, 0.459997, -0.401996, -0.22369, 0.887898, -4.3403, 27.0486, 4.0222)
+shadow_enabled = true
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.999981, 0.00116176, -0.00599867, 0.000240146, 0.973526, 0.228575, 0.00610541, -0.228572, 0.973508, -7.12151, 17.4469, 41.0939)
+
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="."]
+transform = Transform3D(0.995766, -0.0212439, 0.0894338, 0.000240146, 0.973526, 0.228575, -0.0919219, -0.227586, 0.96941, 0.340576, 22.1483, 41.0939)
+
+[node name="Desert marigold" parent="." instance=ExtResource("3_xfgwy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7.25906, 13.7961)
+
+[node name="Desert marigold2" parent="." instance=ExtResource("3_xfgwy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.2379, -12.0494, -33.7952)
+
+[node name="Root Scene" parent="." instance=ExtResource("4_137jn")]
+transform = Transform3D(2.91934, -0.690964, 0, 0.690964, 2.91934, 0, 0, 0, 3, -29.9419, 13.4512, -12.7981)
+
+[node name="Root Scene2" parent="." instance=ExtResource("5_uskw3")]
+transform = Transform3D(0.983631, 0.180193, 0, -0.180193, 0.983631, 0, 0, 0, 1, 10, -7.25273, -18)
